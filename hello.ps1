@@ -1,0 +1,1 @@
+Write-Output "Hello World." | Out-File .\output.txt
