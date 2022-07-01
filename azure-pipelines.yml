@@ -21,3 +21,14 @@ steps:
 - task: PowerShell@2
   inputs:
     filePath: 'hello.ps1'
+    workingDirectory: '$(Build.ArtifactStagingDirectory)'
+
+# Publish a Universal Package
+- task: UniversalPackages@0
+  displayName: Universal Publish
+  inputs:
+    command: publish
+    publishDirectory: '$(Build.ArtifactStagingDirectory)'
+    vstsFeedPublish: 'pshell-hello/pshellartifacts'
+    vstsFeedPackagePublish: 'helloworld'
+    packagePublishDescription: 'a test artifact'
